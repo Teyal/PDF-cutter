@@ -2,16 +2,32 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 
 inputpdf = PdfFileReader(open("C:/Users/teo/Downloads/Telegram Desktop/Computer Organization and Design 5.pdf","rb"))
 
-
-a = int(input()) + 22
-b = int(input()) + 23
-
 output = PdfFileWriter()
 
-for i in range(a,b):
-	
-	output.addPage(inputpdf.getPage(i))
+number = 0.0
+
+while True:
+	try:
+		entr = input()
+		if (entr == ''):
+				break
+		if ('.' in entr):
+			number = entr
+			break
+		entrada = entr.split()
+		print (len(entrada))
+		if (len(entrada) > 1):
+			primeira = int(entrada[0]) + 22
+			ultima   = int(entrada[1]) + 23
+
+			for i in range(primeira, ultima):
+				output.addPage(inputpdf.getPage(i))
+		else:
+			pagina = int(entrada[0]) + 22
+			output.addPage(inputpdf.getPage(pagina))
+	except EOFError:
+		break
 
 
-with open("semana 2.pdf", "wb") as outputStream:
+with open("semana {}.pdf".format(entr), "wb") as outputStream:
 	output.write(outputStream)

@@ -1,6 +1,7 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
-inputpdf = PdfFileReader(open("C:/Users/teo/Downloads/Telegram Desktop/Computer Organization and Design 5.pdf","rb"))
+#inputpdf = PdfFileReader(open("C:/Users/teo/Downloads/Telegram Desktop/Computer Organization and Design 5.pdf","rb"))
+inputpdf = PdfFileReader(open("book/Computer Organization and Design 5.pdf","rb"))
 
 output = PdfFileWriter()
 
@@ -15,10 +16,14 @@ while True:
 			number = entr
 			break
 		entrada = entr.split()
-		print (len(entrada))
+		#could print somehting to make it better
 		if (len(entrada) > 1):
-			primeira = int(entrada[0]) + 22
-			ultima   = int(entrada[1]) + 23
+			if 'A' in entr:
+				primeira = int(entrada[0][1:]) + 574 + 22 #574 is the page where the A-xx start
+				ultima = int(entrada[1][1:]) + 574 + 23
+			else:
+				primeira = int(entrada[0]) + 22
+				ultima   = int(entrada[1]) + 23
 
 			for i in range(primeira, ultima):
 				output.addPage(inputpdf.getPage(i))
