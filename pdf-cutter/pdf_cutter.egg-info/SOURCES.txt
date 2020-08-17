@@ -1,0 +1,9 @@
+README.rst
+setup.py
+pdf_cutter/__init__.py
+pdf_cutter/pdf.py
+pdf_cutter.egg-info/PKG-INFO
+pdf_cutter.egg-info/SOURCES.txt
+pdf_cutter.egg-info/dependency_links.txt
+pdf_cutter.egg-info/requires.txt
+pdf_cutter.egg-info/top_level.txt

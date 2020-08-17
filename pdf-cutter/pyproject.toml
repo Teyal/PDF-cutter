@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pdf-cutter"
+version = "0.1.0"
+description = ""
+authors = ["Teo <teogallarza@gmail.com.br>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+PyPDF4 = "^1.27.0"
+typer = "^0.3.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
